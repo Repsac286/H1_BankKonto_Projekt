@@ -32,7 +32,7 @@ printKunde(kunde2);
 
 static void printKunde(BankKonto kunde)
 {
-    Console.WriteLine("Kunde 1 hos " + BankKonto.BankNavn);
+    Console.WriteLine("Kunde " + kunde.getId() + " hos " + BankKonto.BankNavn);
     Console.WriteLine("ID:    " + kunde.getId());
     Console.WriteLine("Navn:  " + kunde.Name);
     kunde.kontoType();
