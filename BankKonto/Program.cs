@@ -16,31 +16,25 @@ kunde1.saldoTransaction(5);
 kunde2.saldoTransaction(12.0f);
 
 //Udskiver begge kunders kontoer
-Console.WriteLine("Kunde 1 hos " + BankKonto.BankNavn);
-Console.WriteLine("ID:    " + kunde1.getId());
-Console.WriteLine("Navn:  " + kunde1.Name);
-kunde1.kontoType();
-Console.WriteLine("Saldo: " + kunde1.Saldo);
-
-Console.WriteLine("\nKunde 2 hos " + BankKonto.BankNavn);
-Console.WriteLine("ID:    " + kunde2.getId());
-Console.WriteLine("Navn:  " + kunde2.Name);
-kunde2.kontoType();
-Console.WriteLine("Saldo: " + kunde2.Saldo);
+printKunde(kunde1);
+Console.WriteLine("");
+printKunde(kunde2);
 
 //ved "enter" klik ændre jeg bankens navn og udskiver begge kunders kontoer igen så man kan se ændringen
 Console.ReadLine();
 Console.Clear();
 BankKonto.BankNavn = "Bank Nordjysk";
 
-Console.WriteLine("Kunde 1 hos " + BankKonto.BankNavn);
-Console.WriteLine("ID:    " + kunde1.getId());
-Console.WriteLine("Navn:  " + kunde1.Name);
-kunde1.kontoType();
-Console.WriteLine("Saldo: " + kunde1.Saldo);
+printKunde(kunde1);
+Console.WriteLine("");
+printKunde(kunde2);
 
-Console.WriteLine("\nKunde 2 hos " + BankKonto.BankNavn);
-Console.WriteLine("ID:    " + kunde2.getId());
-Console.WriteLine("Navn:  " + kunde2.Name);
-kunde2.kontoType();
-Console.WriteLine("Saldo: " + kunde2.Saldo);
+
+static void printKunde(BankKonto kunde)
+{
+    Console.WriteLine("Kunde 1 hos " + BankKonto.BankNavn);
+    Console.WriteLine("ID:    " + kunde.getId());
+    Console.WriteLine("Navn:  " + kunde.Name);
+    kunde.kontoType();
+    Console.WriteLine("Saldo: " + kunde.Saldo);
+}
