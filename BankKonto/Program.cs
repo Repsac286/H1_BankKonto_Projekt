@@ -29,7 +29,7 @@ printKunde(kunde1);
 Console.WriteLine("");
 printKunde(kunde2);
 
-
+//metode der udskiver en kundes konto infomationer
 static void printKunde(BankKonto kunde)
 {
     Console.WriteLine("Kunde " + kunde.getId() + " hos " + BankKonto.BankNavn);
