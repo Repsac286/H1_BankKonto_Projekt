@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Konto
 {
-    public class BankKonto
+    public abstract class BankKonto
     {
         private static string? bankNavn = "Bank DK";
         private int id;
@@ -66,6 +66,38 @@ namespace Konto
             {
                 bankNavn = value;
             }
+        }
+
+
+        public void saldoTransaction(int value)
+        {
+            this.saldo += value;
+        }
+
+        public void saldoTransaction(float value)
+        {
+            this.saldo += value;
+        }
+
+        public virtual void kontoType()
+        {
+            Console.WriteLine("Konto type");
+        }
+    }
+
+    public class StandartKonto:BankKonto
+    {
+        public override void kontoType()
+        {
+            Console.WriteLine("Standart konto");
+        }
+    }
+
+    public class PrimiumKonto:BankKonto
+    {
+        public override void kontoType()
+        {
+            Console.WriteLine("Primium konto");
         }
     }
 }
