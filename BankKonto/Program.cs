@@ -24,11 +24,16 @@ static void login(Dictionary<int, BankKonto> kunder)
 {
     while (true)
     {
-        Console.WriteLine("Venligst skiv password");
+        Console.WriteLine("Venligst skiv password | skriv 0 for ny konto");
         string input = Console.ReadLine();
         if (int.TryParse(input, out int output))
         {
-            if (kunder.TryGetValue(output, out BankKonto value))
+            if (output == 0) 
+            {
+                Console.Clear();
+                newUser(kunder);
+            }
+            else if (kunder.TryGetValue(output, out BankKonto value))
             {
                 Console.Clear();
                 openKonto(kunder,value);
@@ -131,4 +136,43 @@ static void printKunde(BankKonto kunde)
     Console.WriteLine("Navn:  " + kunde.Name);
     Console.WriteLine("Saldo: " + kunde.Saldo);
     kunde.kontoType();
+}
+
+static void newUser(Dictionary<int, BankKonto> kunder)
+{
+    BankKonto nyKunde = new StandartKonto();
+
+    while (true)
+    {
+        Console.Clear();
+        Console.WriteLine("Standart eller Primium konto?");
+        string input = Console.ReadLine().ToLower();
+        if (input == "standart")
+        {
+            nyKunde = new StandartKonto();
+            break;
+        } else if (input == "primium")
+        {
+            nyKunde = new PrimiumKonto();
+            break;
+        }
+    }
+    nyKunde.setId(kunder.Count + 1);
+    nyKunde.Saldo = 0;
+    nyKunde.TransaktionHistorik = new();
+
+    while (true)
+    {
+        Console.Clear();
+        Console.WriteLine("Konto navn");
+        string new_input = Console.ReadLine();
+        if (new_input != string.Empty)
+        {
+            nyKunde.Name = new_input;
+            break;
+        }
+    }
+
+    kunder.Add(nyKunde.getId(), nyKunde);
+    openKonto(kunder, kunder[nyKunde.getId()]);
 }
