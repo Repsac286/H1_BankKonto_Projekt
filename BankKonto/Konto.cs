@@ -19,6 +19,7 @@ namespace Konto
             this.id = id;
             this.saldo = saldo;
             this.name = name;
+            this.transaktionHistorik = transaktionHistorik;
         }
 
 
