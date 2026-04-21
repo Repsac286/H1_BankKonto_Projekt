@@ -12,12 +12,14 @@ namespace Konto
         private int id;
         private double saldo;
         private string name;
+        private Dictionary<int,float> transaktionHistorik;
 
         public BankKonto(int id = 0, double saldo = 0.0, string name = "John")
         {
             this.id = id;
             this.saldo = saldo;
             this.name = name;
+            this.transaktionHistorik = transaktionHistorik;
         }
 
 
@@ -53,6 +55,18 @@ namespace Konto
             set
             {
                 this.name = value;
+            }
+        }
+
+        public Dictionary<int, float> TransaktionHistorik
+        {
+            get 
+            {
+                return this.transaktionHistorik;
+            }
+            set
+            {
+                this.transaktionHistorik = value;
             }
         }
 
