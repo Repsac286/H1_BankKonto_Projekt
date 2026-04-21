@@ -85,7 +85,6 @@ static void openKonto(Dictionary<int, BankKonto> kunder, BankKonto currentKonto)
                     Console.Clear();
                     if (input == "0") 
                     { 
-                    
                         break;
                     }
                     Console.WriteLine("Indtast venligst et gyldigt beløb");
@@ -120,7 +119,7 @@ static void transaktionHistorik(BankKonto currentKonto)
         foreach (var i in currentKonto.TransaktionHistorik)
         {
             Console.WriteLine($"Transaktion {i.Key}");
-            Console.WriteLine($"Beløb {i.Value}kr.");
+            Console.WriteLine($"Beløb {i.Value} Kr.");
             Console.WriteLine("----------------------");
         }
     }
@@ -134,7 +133,7 @@ static void printKunde(BankKonto kunde)
     Console.WriteLine($"Kunde {kunde.getId()} hos {BankKonto.BankNavn}");
     Console.WriteLine("ID:    " + kunde.getId());
     Console.WriteLine("Navn:  " + kunde.Name);
-    Console.WriteLine("Saldo: " + kunde.Saldo);
+    Console.WriteLine($"Saldo: {kunde.Saldo} Kr.");
     kunde.kontoType();
 }
 
